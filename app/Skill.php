@@ -8,6 +8,6 @@ class Skill extends Model
 {
     public function information()
     {
-        return $this->belongsTo(Information::class);
+        return $this->belongsTo(User::class);
     }
 }

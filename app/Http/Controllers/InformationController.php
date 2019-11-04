@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Information;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\In;
 
 class InformationController extends Controller
 {
@@ -35,7 +37,15 @@ class InformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $information = new Information();
+        $information->gender = $request->gender;
+        $information->birthday = $request->birthday;
+        $information->address = $request->address;
+        $information->phone_number = $request->phone_number;
+        $information->hobby = $request->hobby;
+        $information->experience = $request->experience;
+        $information->education = $request->education;
+        $information->save();//
     }
 
     /**
@@ -67,9 +77,18 @@ class InformationController extends Controller
      * @param  \App\Information  $information
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Information $information)
+    public function update(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $information = Information::findOrFail($id);
+        $information->gender = $request->gender;
+        $information->birthday = $request->birthday;
+        $information->address = $request->address;
+        $information->phone_number = $request->phone_number;
+        $information->hobby = $request->hobby;
+        $information->experience = $request->experience;
+        $information->education = $request->education;
+        $information->save();
     }
 
     /**
@@ -78,8 +97,9 @@ class InformationController extends Controller
      * @param  \App\Information  $information
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Information $information)
+    public function destroy($id)
     {
-        //
+       $information= Information::findOrFail($id);
+       $information->delete();//
     }
 }
