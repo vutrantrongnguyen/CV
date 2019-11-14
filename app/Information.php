@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Information extends Model
 {
     public function user()
@@ -15,4 +14,5 @@ class Information extends Model
     {
         return $this->hasMany(Skill::class);
     }
+    protected $table = "informations";
 }

@@ -33,7 +33,9 @@
                                      alt="User profile picture">
                             </div>
 
-                            <h3 class="profile-username text-center">Nina Mcintire</h3>
+                            <h3 class="profile-username text-center">{{$user->name
+
+                            }}</h3>
 
                             <p class="text-muted text-center">Software Engineer</p>
 
@@ -323,52 +325,52 @@
                                     <form class="form-horizontal" action="/createInfo" method="post">
                                         @csrf
                                         <div class="form-group row">
-                                            <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                            <label for="name" class="col-sm-2 col-form-label">Name</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputEmail" class="col-sm-2 col-form-label">Gender</label>
+                                            <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                                             <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                                <input type="text" class="form-control" id="gender" name="gender" placeholder="Gender">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputName2" class="col-sm-2 col-form-label">Birthday</label>
+                                            <label for="birthday" class="col-sm-2 col-form-label">Birthday</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                                <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Name">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputExperience" class="col-sm-2 col-form-label">Address</label>
+                                            <label for="address" class="col-sm-2 col-form-label">Address</label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                                <textarea class="form-control" id="address" name="address" placeholder="address"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Phone</label>
+                                            <label for="phone_number" class="col-sm-2 col-form-label">Phone</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Phone">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Hobby</label>
+                                            <label for="hobby" class="col-sm-2 col-form-label">Hobby</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                                <input type="text" class="form-control" id="hobby" name="hobby" placeholder="Hobby">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Experience</label>
+                                            <label for="experience" class="col-sm-2 col-form-label">Experience</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                                <input type="text" class="form-control" id="experience" name="experience" placeholder="Experience">
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="inputSkills" class="col-sm-2 col-form-label">Education</label>
+                                            <label for="education" class="col-sm-2 col-form-label">Education</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputSkills"
-                                                       placeholder="Skills">
+                                                <input type="text" class="form-control" id="education" name="education"
+                                                       placeholder="Education">
                                             </div>
                                         </div>
                                         <div class="form-group row">

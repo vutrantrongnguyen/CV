@@ -17,5 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/createInfo','InformationController@store');
+//Route::get('/home', 'InformationController@show')->name('home');
+//Route::post('/createInfo','InformationController@store');
+Route::get('/home','ConfigController@show');
+Route::get('/create',function () {
+    return view('config.create');
+});
+Route::post('/make','ConfigController@make');
+Route::put('/config/update','ConfigController@update');
+Route::delete('/config/delete','ConfigConroller@delete');

@@ -32,12 +32,13 @@ class InformationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $information = new Information();
+        $information->user_id = Auth::user()->id;
         $information->gender = $request->gender;
         $information->birthday = $request->birthday;
         $information->address = $request->address;
@@ -51,18 +52,20 @@ class InformationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Information  $information
+     * @param \App\Information $information
      * @return \Illuminate\Http\Response
      */
     public function show(Information $information)
     {
-        //
+        $user = Auth::user();
+        $information = Information::where("user_id", $user->id)->get();
+        return view('home', compact('user','information'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Information  $information
+     * @param \App\Information $information
      * @return \Illuminate\Http\Response
      */
     public function edit(Information $information)
@@ -73,8 +76,8 @@ class InformationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Information  $information
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Information $information
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -94,12 +97,12 @@ class InformationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Information  $information
+     * @param \App\Information $information
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-       $information= Information::findOrFail($id);
-       $information->delete();//
+        $information = Information::findOrFail($id);
+        $information->delete();//
     }
 }
